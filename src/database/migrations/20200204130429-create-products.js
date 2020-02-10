@@ -1,6 +1,6 @@
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable('users', {
+    return queryInterface.createTable('products', {
       id: {
         type: Sequelize.INTEGER,
         allowNull: false,
@@ -11,25 +11,28 @@ module.exports = {
         type: Sequelize.INTEGER,
         allowNull: false,
       },
-      name: {
+      descricao: {
         type: Sequelize.STRING,
         allowNull: false,
       },
-      email: {
-        type: Sequelize.STRING,
-        allowNull: false,
-        unique: true,
-      },
-      password: {
-        type: Sequelize.STRING,
+      preco_custo: {
+        type: Sequelize.REAL,
         allowNull: false,
       },
-      is_master: {
-        type: Sequelize.BOOLEAN,
+      preco_venda: {
+        type: Sequelize.REAL,
         allowNull: false,
       },
-      avatar: {
-        type: Sequelize.STRING,
+      foto: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+      },
+      qtd_pontos: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+      },
+      tipo: {
+        type: Sequelize.INTEGER,
         allowNull: false,
       },
       status: {
@@ -40,7 +43,7 @@ module.exports = {
   },
 
   down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable('users');
+    return queryInterface.dropTable('products');
 
   }
 };

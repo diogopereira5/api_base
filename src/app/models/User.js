@@ -4,10 +4,13 @@ import bcrypt from 'bcryptjs';
 class User extends Model {
     static init(sequelize) {
         super.init({
+            id_empresa: Sequelize.INTEGER,
             name: Sequelize.STRING,
             email: Sequelize.STRING,
-            password: Sequelize.VIRTUAL,
-            password_hash: Sequelize.STRING
+            password: Sequelize.STRING,
+            is_master: Sequelize.INTEGER,
+            avatar: Sequelize.STRING,
+            status: Sequelize.INTEGER,
         },
             {
                 sequelize,
@@ -23,10 +26,6 @@ class User extends Model {
 
         return this;
 
-    }
-
-    static associate(models){
-        this.belongsTo(models.File, { foreignKey: 'avatar_id', as: 'avatar' });
     }
 
     checkPassword(password) {

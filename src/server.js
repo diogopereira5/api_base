@@ -1,3 +1,5 @@
+import 'dotenv/config';
 import app from './app';
 
-app.listen(3334);
+const PORT = process.env.PORT || 3334;
+app.listen(PORT);
